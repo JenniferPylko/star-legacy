@@ -16,7 +16,7 @@ string textures = "/Textures";
 string entities = "/Entities";
 string workspace;
 
-/* 
+/* THIS IS AN ALTERED SOURCE VERSION
    base64
 
    Copyright (C) 2004-2008 René Nyffenegger
