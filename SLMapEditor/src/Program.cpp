@@ -4,7 +4,7 @@
 using namespace MapEditor;
 int main(int argc, char** argv)
 {
-	mapedit * game = new mapedit();
+	mapedit* game = new mapedit(argv,argc);
 	game->Run();
 	exit(0);
 }

@@ -12,7 +12,7 @@ namespace MapEditor
 	class mapedit : public Game
 	{
 		public:
-			mapedit();
+			mapedit(char** argv, int argc);
 			void Initialize();
 			void LoadContent();
 			void UnloadContent();

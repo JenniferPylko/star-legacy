@@ -1,3 +1,9 @@
+all:
+	$(MAKE) -C kzqcvm
+	$(MAKE) -C SLEngine
+	$(MAKE) -C SLGame
+	$(MAKE) -C SLMapEditor
+
 kzqcvm:
 	$(MAKE) -C kzqcvm
 
@@ -9,5 +15,3 @@ game:
 
 editor:
 	$(MAKE) -C SLMapEditor
-
-all: game
