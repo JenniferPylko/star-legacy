@@ -1,0 +1,3 @@
+[submodule "MINX-star-legacy"]
+	path = MINX-star-legacy
+	url = https://github.com/brpylko/MINX-star-legacy
