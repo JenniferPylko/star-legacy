@@ -1,4 +1,5 @@
 #include "Brush.hpp"
+#include "utils.hpp"
 
 #include <vector>
 #include <iostream>
@@ -7,7 +8,18 @@ using namespace MapEditor;
 
 Brush::Brush(string name)
 {
-	brushName = name;
+	if(name.size() > 0)
+	{
+		brushName = name;
+	}
+	else
+	{
+		cerr << "ERROR: Blank brush name, this will cause problems" << endl;
+	}
+}
+
+Brush::Brush() : Brush("")
+{
 }
 
 string Brush::GetName()

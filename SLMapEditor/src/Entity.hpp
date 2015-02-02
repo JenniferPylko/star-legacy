@@ -12,7 +12,8 @@ namespace MapEditor
 	{
 		public:
 			Entity(string name);
-			string GetEntityData();
+			Entity();
+			string GetName();
 			void SetField(string fieldname, string value);
 			void SetField(string fieldname, int value);
 			string GetStringField(string fieldname);

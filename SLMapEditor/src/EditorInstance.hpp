@@ -21,9 +21,9 @@ namespace MapEditor
 			string GetStringGlobal(string globalame);
 			int GetIntGlobal(string globalname);
 		private:
-			map<string, Brush> brushes;
-			map<string, Entity> entities;
-			map<string, SLObject> objects;
+			map<string, Brush> loadedbrushes;
+			map<string, Entity> loadedentities;
+			map<string, SLObject> loadedobjects;
 			map<string, string> strglobals;
 			map<string, int> intglobals;
 	};

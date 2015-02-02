@@ -1,9 +1,11 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include <MINX/Graphics/Texture2D.hpp>
+#include <SLMINX/Graphics/Texture2D.hpp>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <dirent.h>
+#include <iostream>
 #include "tinyxml2.h"
 
 using namespace std;
@@ -18,6 +20,46 @@ string textures = "Textures/";
 string entities = "Entities/";
 string objects = "SLObjects/";
 string workspace;
+
+
+string sl_str_t = "String";
+string sl_int_t = "Int";
+string sl_str_ref_t = "StringRef";
+string sl_int_ref_t = "IntRef";
+string sl_brush_t = "Brush";
+string sl_entity_t = "Entity";
+string sl_object_t = "SLObject";
+
+unsigned long getsum(string data)
+{
+	unsigned long ret;
+	for(int i = 0; i < data.size(); ++i)
+	{
+		ret += static_cast<unsigned long>(data[i]);
+	}
+	return ret;
+}
+
+vector<string> getdir(string dir)
+{
+	vector<string> files;
+	DIR *dp;
+	struct dirent *dirp;
+	struct stat s;
+	if((dp  = opendir(dir.c_str())) == NULL) {
+		cerr << "Error(" << errno << ") opening " << dir << endl;
+	}
+
+	while ((dirp = readdir(dp)) != NULL) {
+		stat(dirp->d_name, &s);
+		if(s.st_mode & S_IFREG)
+		{
+			files.push_back(string(dirp->d_name));
+		}
+	}
+	closedir(dp);
+	return files;
+}
 
 /* THIS IS AN ALTERED SOURCE VERSION
    base64
@@ -141,6 +183,10 @@ string check_workspace()
 		p.OpenElement("StringRef");
 			p.PushAttribute("name","savedir");
 			p.PushText("workspace");
+		p.CloseElement();
+		p.OpenElement("String");
+			p.PushAttribute("name","gamedir");
+			p.PushText("PATH_TO_INSTALLATION/");
 		p.CloseElement();
 		of.open(workspace+"slme.conf");
 		of << p.CStr();

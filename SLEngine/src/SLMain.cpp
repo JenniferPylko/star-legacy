@@ -1,6 +1,6 @@
 
 #include "SLMain.hpp"
-#include <MINX/Graphics/Color.hpp>
+#include <SLMINX/Graphics/Color.hpp>
 
 using namespace StarLegacy;
 

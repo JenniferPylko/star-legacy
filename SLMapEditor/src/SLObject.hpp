@@ -12,6 +12,8 @@ namespace MapEditor
 	{
 		public:
 			SLObject(string name);
+			SLObject();
+			string GetName();
 			void SetParam(string paramname, string value);
 			void SetParam(string paramname, int value);
 			string GetStringParam(string paramname);

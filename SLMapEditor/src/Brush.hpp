@@ -12,6 +12,7 @@ namespace MapEditor
 	{
 		public:
 			Brush(string name);
+			Brush();
 			string GetName();
 			void SetProperty(string propname, string value);
 			void SetProperty(string propname, int value);

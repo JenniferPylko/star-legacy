@@ -1,11 +1,11 @@
 #include "mapedit.hpp"
 #include "utils.hpp"
 #include <iostream>
-#include <MINX/Graphics/Color.hpp>
-#include <MINX/Graphics/TextureBatch.hpp>
-#include <MINX/Graphics/ShaderFactory.hpp>
-#include <MINX/Graphics/Texture2D.hpp>
-#include <MINX/Input/Mouse.hpp>
+#include <SLMINX/Graphics/Color.hpp>
+#include <SLMINX/Graphics/TextureBatch.hpp>
+#include <SLMINX/Graphics/ShaderFactory.hpp>
+#include <SLMINX/Graphics/Texture2D.hpp>
+#include <SLMINX/Input/Mouse.hpp>
 
 using namespace MapEditor;
 using namespace MINX::Graphics;
