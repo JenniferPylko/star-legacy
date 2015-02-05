@@ -1,6 +1,7 @@
 #include "EditorInstance.hpp"
 #include "tinyxml2.h"
 #include "utils.hpp"
+#include <iostream>
 
 using namespace MapEditor;
 using namespace tinyxml2;
@@ -10,7 +11,8 @@ EditorInstance::EditorInstance(string workspace)
 	strglobals["workspace"] = workspace;
 	map<string, string> stringrefs;
 	map<string, string> intrefs;
-	XMLDocument configfile((workspace + "slme.conf").c_str());
+	XMLDocument configfile;
+	configfile.LoadFile((workspace + "slme.conf").c_str());
 	for(XMLElement* el = configfile.FirstChildElement(); el; el = el->NextSiblingElement())
 	{
 		if(el->Name() == sl_str_t)
@@ -50,10 +52,10 @@ EditorInstance::EditorInstance(string workspace)
 	{
 		for(int j = 0; j < editorfiles[i].size(); ++j)
 		{
-			editordata += editorfiles[i][j];
+			editordata += create_or_open_file(editorfiles[i][j]);
 		}
 	}
-	XMLDocument editorxml(true, COLLAPSE_WHITESPACE);
+	XMLDocument editorxml(true);
 	editorxml.Parse(editordata.c_str());
 	for(XMLElement* el = editorxml.FirstChildElement(); el; el = el->NextSiblingElement())
 	{

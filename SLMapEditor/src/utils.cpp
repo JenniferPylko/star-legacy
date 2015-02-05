@@ -48,6 +48,7 @@ vector<string> getdir(string dir)
 	struct stat s;
 	if((dp  = opendir(dir.c_str())) == NULL) {
 		cerr << "Error(" << errno << ") opening " << dir << endl;
+		return files;
 	}
 
 	while ((dirp = readdir(dp)) != NULL) {

@@ -1,5 +1,6 @@
 #include "mapedit.hpp"
 #include "utils.hpp"
+#include "EditorInstance.hpp"
 #include <iostream>
 #include <SLMINX/Graphics/Color.hpp>
 #include <SLMINX/Graphics/TextureBatch.hpp>
@@ -15,6 +16,7 @@ using namespace std;
 TextureBatch* texb;
 Texture2D* mu1;
 Texture2D* mu2;
+EditorInstance* editor;
 
 double camX, camY;
 
@@ -47,6 +49,7 @@ void mapedit::LoadContent()
 {
 	check_workspace();
 	filedata = create_or_open_file(filename);
+	editor = new EditorInstance(workspace);
 	Game::LoadContent();
 }
 

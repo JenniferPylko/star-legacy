@@ -18,6 +18,9 @@ namespace MapEditor
 			Brush GetBrushTemplate(string brushname);
 			Entity GetEntityTemplate(string entityname);
 			SLObject GetSLObjectTemplate(string templatename);
+			map<string, Brush> GetLoadedBrushes();
+			map<string, Entity> GetLoadedEntities();
+			map<string, SLObject> GetLoadedObjects();
 			string GetStringGlobal(string globalame);
 			int GetIntGlobal(string globalname);
 		private:
